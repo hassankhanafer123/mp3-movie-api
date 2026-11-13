@@ -14,6 +14,22 @@ class DatasetInfo(BaseModel):
     columns: int
     column_names: list[str]
 
+class MovieUploadInfo(BaseModel):
+    filename: str
+    rows: int
+    columns: int
+    column_names: list[str]
+
+
+class MovieDataResponse(BaseModel):
+    data: list[dict]
+    total_rows: int
+
+
+class MovieProcessingReport(BaseModel):
+    validation_rows_removed: int
+    cleaning_report: dict
+
 class ValidationSettings(BaseModel):
     required_columns: list[str] = Field(default_factory=list)
     numeric_columns: list[str] = Field(default_factory=list)
